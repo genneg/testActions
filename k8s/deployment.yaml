@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: devops-capstone
 spec:
-  replicas: 
+  replicas: 3
   selector:
     matchLabels:
       app: devops-capstone
