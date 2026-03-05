@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: devops-capstone
-          image: devops-capstone:v1
+          image: devops-capstone:v2
           ports:
             - containerPort: 8000
