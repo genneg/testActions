@@ -29,5 +29,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: g3nn3g/testActions:latest
-          
+          tags: g3nn3g/testactions:latest
