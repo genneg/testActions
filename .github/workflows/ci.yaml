@@ -1,0 +1,33 @@
+name: CI Workflow
+
+# 1. Quando parte? Ogni volta che fai 'git push' sul ramo main
+on:
+  push:
+    branches:
+      - main
+
+# 2. Cosa fa? Una lista di "jobs"
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest # GitHub ci presta gratis un server Linux!
+
+    steps:
+      # Step A: Clona il nostro codice in quel server Linux
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step B: Usa i secrets per entrare in Docker Hub
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # Step C: Costruisce come facevamo noi a mano, e spedisce
+      - name: Build and push container image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: g3nn3g/testActions:latest
+          
