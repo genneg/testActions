@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: devops-capstone
 spec:
-  replicas: 2
+  replicas: 
   selector:
     matchLabels:
       app: devops-capstone
@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: devops-capstone
-          image: devops-capstone:v2
+          image: g3nn3g/testactions:latest
           ports:
             - containerPort: 8000
